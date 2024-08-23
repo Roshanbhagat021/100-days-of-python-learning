@@ -1,14 +1,15 @@
+from art import  logo
 # TODO-1: Ask the user for input
 # TODO-2: Save data into dictionary {name: price}
 # TODO-3: Whether if new bids need to be added
 # TODO-4: Compare bids in dictionary
 
-
+print(logo)
 print("Welcome to the blind bidding app we hope for you happy shopping")
 
 def user_input(dicti):
-    name = input("what is your name? ")
-    bidding_amount = int(input("What is your bid? $"))
+    name = input("what is your name?: ")
+    bidding_amount = int(input("What is your bid?: \u20B9" ))
     dicti[name] = bidding_amount
 
 user_details = {}
@@ -29,15 +30,15 @@ while more_bidders :
             print("Invalid input please write 'yes' or 'no'.")
 
 max_bid = 0
-second_hightest_bid = 0
+second_highest_bid = 0
 person = ""
 for bidder in user_details:
     if user_details[bidder] > max_bid:
-        second_hightest_bid = max_bid
+        second_highest_bid = max_bid
         max_bid = user_details[bidder]
         person = bidder
 
 print(user_details)
-print(f"The Winner is {person} with ${max_bid-second_hightest_bid} extra bids.")
+print(f"The Winner is {person} with ${max_bid-second_highest_bid} extra bids.")
 
 
