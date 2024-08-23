@@ -17,10 +17,14 @@ travel_log = {
     "cities_visited": ["Paris", "Lille", "Dijon"],
     "total_visits": 12
    },
-  "Germany": { 
+  "Germany": {
     "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
     "total_visits": 5
    },
 }
 
-print(travel_log["Germany"]["cities_visited"][2])
+for key in travel_log:
+    for details in travel_log[key]:
+        if details == "cities_visited":
+            for cities in travel_log[key][details]:
+                print(cities)
