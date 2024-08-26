@@ -1,44 +1,52 @@
 import random
 from art import logo
+
 print(logo)
 while True:
-    num_list = list(range(1,101))
+    num_list = list(range(1, 101))
     levels = ["hard", "easy"]
 
     print("Welcome to the Number Guessing Game!")
-    print("I am thinking a number between 1 to 100.")
+    print("I’m thinking of a number between 1 and 100. Don't worry, it's not one of those existential questions.")
 
     random_num = random.choice(num_list)
     life = 10
-    # print(random_num)
-    while (game_level := input("Choose the difficulty level. Type 'easy' or 'hard': ").lower()) not in levels:
-        print("Invalid input")
+    # print(random_num)  # You can comment this out to keep the number hidden
+    while (game_level := input("Choose your difficulty level. Type 'easy' for a leisurely stroll or 'hard' for a rollercoaster ride: ").lower()) not in levels:
+        print("Oops! That’s not an option. Try again!")
+
     if game_level == 'hard':
         life = 5
-
+        print("Oh, going for 'hard'? Someone’s feeling brave!")
 
     while True:
-        print(f"You have {life} attempts remaining to guess the number.")
-        user_input = int(input("Make a Guess: "))
+        print(f"Just so you know, you've got {life} shots at glory left.")
+        user_input = int(input("Take a wild guess: "))
+
         if user_input != random_num and life > 0:
+            checking_list = list(range(random_num - 3, random_num + 4))
             if user_input > random_num:
-                print("Too high")
-                print(user_input)
+                if user_input in checking_list:
+                    print("Close, but no cigar. A bit too high.")
+                else:
+                    print("Way too high! Did you shoot for the stars?")
                 life -= 1
             elif user_input < random_num:
-                print("Too low")
-                print(user_input)
+                if user_input in checking_list:
+                    print("Almost there! Just a tad low.")
+                else:
+                    print(f"{user_input}? You dug too deep into the ground!")
                 life -= 1
 
         elif life == 0:
-            print("You've ran out of guesses, You lose")
-
-
-        elif user_input == random_num:
-            print(f"Hurry you got this! The number was {user_input}")
+            print("No more guesses left. Better luck next time, my friend!")
             break
 
-    continue_or_not = input("Do you want to guess another number ? Type 'y' or 'n'").lower()
-    if continue_or_not == "n":
-        exit()
+        elif user_input == random_num:
+            print(f"Congratulations, genius! The number was indeed {user_input}. You should try your hand at mind reading!")
+            break
 
+    continue_or_not = input("Fancy another round of fun? Type 'y' to play again or 'n' to quit while you're ahead: ").lower()
+    if continue_or_not == "n":
+        print("Thanks for playing! See you next time, if you're brave enough.")
+        exit()
