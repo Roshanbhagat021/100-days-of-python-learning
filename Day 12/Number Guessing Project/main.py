@@ -19,7 +19,7 @@ while True:
         life = 5
         print("Oh, going for 'hard'? Someone’s feeling brave!")
 
-    while True:
+    while life > 0:
         print(f"Just so you know, you've got {life} shots at glory left.")
         user_input = int(input("Take a wild guess: "))
 
@@ -28,24 +28,28 @@ while True:
             if user_input > random_num:
                 if user_input in checking_list:
                     print("Close, but no cigar. A bit too high.")
+                    
                 else:
                     print("Way too high! Did you shoot for the stars?")
                 life -= 1
+                
             elif user_input < random_num:
                 if user_input in checking_list:
                     print("Almost there! Just a tad low.")
+                    
                 else:
                     print(f"{user_input}? You dug too deep into the ground!")
                 life -= 1
-
+                
         elif life == 0:
             print("No more guesses left. Better luck next time, my friend!")
             break
-
+            
         elif user_input == random_num:
             print(f"Congratulations, genius! The number was indeed {user_input}. You should try your hand at mind reading!")
             break
-
+            
+    # Ask if the user wants to play again
     continue_or_not = input("Fancy another round of fun? Type 'y' to play again or 'n' to quit while you're ahead: ").lower()
     if continue_or_not == "n":
         print("Thanks for playing! See you next time, if you're brave enough.")
