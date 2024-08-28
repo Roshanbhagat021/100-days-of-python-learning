@@ -54,3 +54,4 @@ while True:
     if continue_or_not == "n":
         print("Thanks for playing! See you next time, if you're brave enough.")
         exit()
+ 
