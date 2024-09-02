@@ -29,11 +29,17 @@ t.color("indianred1")
 #     t.forward(10)
 #     t.pendown()
 
-colors = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "brown", "black"]
+turtle_colors = [
+    "red", "blue", "green", "yellow", "purple", "orange", "pink", "brown", "black", "white",
+    "cyan", "magenta", "gold", "silver", "coral", "turquoise", "lime", "indigo", "violet", "maroon"
+]
+
 
 
 def draw_shapes(no_of_sides):
+    random_color = random.choice(turtle_colors)
     angle = 360/no_of_sides
+    t.color(random_color)
     for _ in range(no_of_sides):
         t.forward(100)
         t.right(angle)
