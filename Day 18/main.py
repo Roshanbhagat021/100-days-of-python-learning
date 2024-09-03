@@ -1,53 +1,28 @@
-from turtle import Turtle, Screen
 import random
+from turtle import Turtle, Screen
+
+
 
 t = Turtle()
-# tom = Turtle()
-t.shape("turtle")
-
-t.color("indianred1")
 
 
-# Challange one
-# t.left(90)
-# def create_square():
-#     for _ in range(4):
-#         t.forward(100)
-#         t.right(90)
-
-
-# create_square()
-
-
-
-# Challange two
-
-# for _ in range(15):
-#     t.speed(1)
-#     t.forward(10)
-#     t.penup()
-#     t.forward(10)
-#     t.pendown()
-
-turtle_colors = [
-    "red", "blue", "green", "yellow", "purple", "orange", "pink", "brown", "black", "white",
-    "cyan", "magenta", "gold", "silver", "coral", "turquoise", "lime", "indigo", "violet", "maroon"
+Colors = [
+    "red", "blue", "green", "purple", "orange", "pink", "brown", "black",
+    "cyan", "magenta", "gold", "coral", "turquoise", "lime", "indigo", "violet", "maroon"
 ]
-
-
-
-def draw_shapes(no_of_sides):
-    random_color = random.choice(turtle_colors)
-    angle = 360/no_of_sides
+angels_to_move = [0,90,270,180]
+t.shape("turtle")
+t.speed(0)
+t.width(6)
+for move in range(200):
+    random_color = random.choice(Colors)
     t.color(random_color)
-    for _ in range(no_of_sides):
-        t.forward(100)
-        t.right(angle)
+    t.setheading(random.choice(angels_to_move))
+    t.forward(20)
 
 
-for shape_size_n in range(3,11):
-    draw_shapes(shape_size_n)
 
 
 screen = Screen()
 screen.exitonclick()
+# 0.0
