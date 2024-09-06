@@ -13,10 +13,12 @@ t = turtle.Turtle()
 #     g = color.rgb.g
 #     b = color.rgb.b
 #     rgb_colors.append((r,g,b))
+
+# The dot painting with the help of turtle
 t.penup()
 t.hideturtle()
 
-t.speed(0)
+t.speed(2)
 def draw_painting():
     x = -200
     for _ in range(10):
@@ -35,9 +37,13 @@ def draw_painting():
 draw_painting()
 
 
-turtle.mainloop()
-
-
+for i in range(3):
+turtle.circle(40)
+turtle.right(120)
+# exit from the screen
+# if and only if
+# mouse is clicked
+turtle.exitonclick()
 
 
 
