@@ -33,6 +33,7 @@ if user_bet:
 
 create_turtuls()
 while is_race_on:
+    
     for turtle in turtuls:
         if turtle.xcor() > 220:
             is_race_on = False
@@ -47,6 +48,8 @@ while is_race_on:
             
         rand_distant = random.randint(0, 10)
         turtle.forward(rand_distant)
+        
+        
 
 
 screen.exitonclick()
