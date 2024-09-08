@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+import winsound
 STARTING_POSITION = [(0,0),(-20,0),(-40,0)]
 MOVE_DISTANCE = 20
 UP = 90
@@ -40,25 +41,35 @@ class Snake:
                 new_y_position = self.segment[seg-1].ycor()
                 self.segment[seg].goto(new_x_position,new_y_position)          
             self.head.forward(MOVE_DISTANCE)
+            
     
     
     def stop(self):
         self.paused = not self.paused
+        self.play_move()
+
+    def play_move(self):
+        winsound.PlaySound('C:\\100-days-of-python-learning\\Day 20\\snake_game\\sound\\music_move.wav', winsound.SND_ASYNC)
+            
             
         
     def up(self):
         if int(self.head.heading()) != DOWN:
             self.head.setheading(UP)  
+            self.play_move()
         
                
     def down(self):
         if int(self.head.heading() ) != UP:
             self.head.setheading(DOWN) 
+            self.play_move()
         
     def left(self):
         if int(self.head.heading() ) != RIGHT:
-            self.head.setheading(LEFT)     
+            self.head.setheading(LEFT)  
+            self.play_move()   
         
     def right(self):
         if int(self.head.heading() ) != LEFT:  
-            self.head.setheading(RIGHT)     
+            self.head.setheading(RIGHT)  
+            self.play_move()   

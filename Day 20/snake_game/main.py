@@ -35,17 +35,19 @@ while game_is_on:
     snake.move()
     
     if snake.head.distance(food) < 15:
-        winsound.PlaySound('C:\\100-days-of-python-learning\\Day 20\\snake_game\\sound\\blip.wav', winsound.SND_ASYNC)
+        winsound.PlaySound('C:\\100-days-of-python-learning\\Day 20\\snake_game\\sound\\music_food.wav', winsound.SND_ASYNC)
         food.new_food()
         snake.extend()
         scoreboard.inc_score()
         
     if snake.head.xcor() > 280 or snake.head.xcor() < -295 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        winsound.PlaySound('C:\\100-days-of-python-learning\\Day 20\\snake_game\\sound\\music_gameover.wav', winsound.SND_ASYNC)
         game_is_on = False    
         scoreboard.game_over()
     
     for seg in snake.segment[1:]:
         if snake.head.distance(seg) < 10:
+            winsound.PlaySound('C:\\100-days-of-python-learning\\Day 20\\snake_game\\sound\\music_gameover.wav', winsound.SND_ASYNC)
             game_is_on = False    
             scoreboard.game_over()
         
