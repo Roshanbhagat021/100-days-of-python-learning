@@ -7,7 +7,12 @@ from tkinter import messagebox
 is_race_on = False
 screen = Screen()
 screen.setup(width=500, height=400)
-
+end_line_turtle = Turtle()
+end_line_turtle.penup()
+end_line_turtle.goto(220,-100)
+end_line_turtle.left(90)
+end_line_turtle.pendown()
+end_line_turtle.forward(240)
 
 user_bet = screen.textinput("Choose the winning turtle", "Which turtle will win the race? Enter the color: ")
 
