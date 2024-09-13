@@ -1,7 +1,12 @@
-from turtle import Turtle
+from turtle import Turtle, Screen
 from car import Car
 import random
-import time
+
+car_image_path = "C:/100-days-of-python-learning/Day 23/images/car.gif"
+
+screen = Screen()
+screen.register_shape(car_image_path)
+
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
@@ -14,11 +19,11 @@ class CarManager:
         self.car_speed = STARTING_MOVE_DISTANCE
         
     def create_car(self):
-        random_chance = random.randint(1,7)
+        random_chance = random.randint(1,5)
         if random_chance == 1:
             new_car = Turtle()
-            new_car.shape("square")
-            new_car.shapesize(stretch_len=2,stretch_wid=1)
+            new_car.shape(car_image_path)
+            new_car.shapesize(1,1)
             new_car.penup()
             new_car.color(random.choice(COLORS))
             random_y = random.randint(-250,250)
