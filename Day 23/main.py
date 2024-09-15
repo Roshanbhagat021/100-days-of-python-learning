@@ -30,8 +30,8 @@ while game_is_on:
     for car in car_manager.all_cars:
         if car.distance(player) < 20:
             winsound.PlaySound("C:/100-days-of-python-learning/Day 23/sound/game_over.wav", winsound.SND_ASYNC)
-            game_is_on = False
             score.game_over()
+            game_is_on = False
     
     if player.is_at_finishLine():
         player.go_to_start()
@@ -39,5 +39,6 @@ while game_is_on:
         
         car_manager.level_up()
         score.increase_level()
+        winsound.PlaySound("C:/100-days-of-python-learning/Day 23/sound/game_music.wav", winsound.SND_ASYNC)
         
 screen.exitonclick()
