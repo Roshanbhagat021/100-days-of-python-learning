@@ -7,6 +7,8 @@ import winsound
 background_path = "C:/100-days-of-python-learning/Day 23/images/background_image1.gif"
 
 screen = Screen()
+screen.title("Trutle Road Crossing Game
+             ")
 screen.register_shape(background_path)
 print(screen.getshapes())
 screen.bgpic(background_path)
