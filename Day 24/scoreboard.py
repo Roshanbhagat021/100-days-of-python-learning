@@ -3,6 +3,8 @@ ALIGNMENT = "center"
 FONT = ("Courier", 24, "normal")
 
 
+
+
 class Scoreboard(Turtle):
 
     def __init__(self):
@@ -12,7 +14,8 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(0, 270)
         self.hideturtle()
-        self.high_score = 0
+        with open("../../Users/dell/Desktop/score.txt") as data:
+            self.high_score = int(data.read())
         self.update_scoreboard()
 
     def update_scoreboard(self):
@@ -21,7 +24,9 @@ class Scoreboard(Turtle):
         
     def reset(self):
         if self.score > self.high_score:
-            self.high_score = self.score    
+           self.high_score = self.score    
+           with open("C:/Users/dell/Desktop/score.txt" ,mode="w") as data:
+               data.write(f"{self.high_score}")
             
         self.score = 0
         self.update_scoreboard()    
